@@ -27,7 +27,7 @@ $(document).ready(function() {
 	active_scan_timer = setInterval(function() { checkActiveScan(); }, 2000);
 	$('select').formSelect();
 
-	$.get('https://api.github.com/repos/Rev3rseSecurity/WebMap').done(function(d) {
+	$.get('https://api.github.com/repos/ComansServices/Project-Armadillo').done(function(d) {
 		$('#githubstar').html(d['stargazers_count']+' stars');
 		$('#githubfork').html(d['forks']+' forks');
 	});
@@ -343,7 +343,7 @@ function openNotes(hashstr, notesb64) {
 		} else {
 			savednotes = ''
 		}
-		// $('#modal1').css('background-color','#3e3e3e');
+		$('#modal1').css('background-color','#3e3e3e');
 		$('#modaltitle').html('Save Notes');
 		$('#modalbody').html(
 			'In the text area below, you can insert notes that will appear on the PDF report. '+
