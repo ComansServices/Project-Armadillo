@@ -1,19 +1,19 @@
 # WebMap
 # -
-# https://github.com/Rev3rseSecurity/WebMap
-# Rev3rse Security: https://www.youtube.com/rev3rsesecurity
+# https://github.com/ComansServices/Project-Armadillo
+# Comans Services: http://www.comansservices.com.au
 # Author: theMiddle
 # -
 # Usage:
 #   $ cd /opt
-#   $ git clone https://github.com/liudonghua123/WebMap.git
-#   $ cd WebMap/docker
-#   $ docker build -t webmap:latest .
-#   $ docker run -d -v /opt/WebMap/docker/xml:/opt/xml -p 8000:8000 webmap:latest
+#   $ git clone https://github.com/ComansServices/Project-Armadillo.git
+#   $ cd Project-Armadillo/docker
+#   $ docker build -t armadillo:latest .
+#   $ docker run -d -v /tmp/armadillo:/opt/xml -p 8000:8000 webmap:latest
 #
 # Nmap Example:
 #   $ nmap -sT -A -oX /tmp/myscan.xml 192.168.1.0/24
-#   $ mv /tmp/myscan.xml /opt/WebMap/docker/xml
+#   $ mv /tmp/myscan.xml /tmp/armadillo
 #
 # Now you can point your browser to http://localhost:8000
 
@@ -30,7 +30,7 @@ RUN mkdir /opt/xml && mkdir /opt/notes && \
 
 RUN pip3 install Django requests xmltodict && \
     cd /opt/ && django-admin startproject nmapdashboard && cd /opt/nmapdashboard && \
-    git clone https://github.com/liudonghua123/WebMap.git nmapreport && \
+    git clone https://github.com/ComansServices/Project-Armadillo.git nmapreport && \
     cd nmapreport && git checkout v2.3/master
 
 COPY settings.py /opt/nmapdashboard/nmapdashboard/
