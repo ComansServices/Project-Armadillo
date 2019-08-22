@@ -1,6 +1,6 @@
 <p align="center">
-<img width="300" src="https://i.imgur.com/puyIfHT.jpg" /><br>
-A Web Dashbord for Nmap XML Report 
+<img width="300" src="https://i.imgur.com/pa5lugz.png" /><br>
+A Web Dashbord Project-Armadillo - based on WebMap
 </p>
 
 ## Table Of Contents
@@ -27,48 +27,49 @@ A Web Dashbord for Nmap XML Report
 ## Usage
 You should use this with docker, just by sending this command:
 ```bash
-$ mkdir /tmp/webmap
+$ mkdir /tmp/armadillo
 $ docker run -d \
-         --name webmap \
-         -h webmap \
+         --name armadillo \
+         -h armadillo \
          -p 8000:8000 \
-         -v /tmp/webmap:/opt/xml \
-         rev3rse/webmap
+         -v /tmp/armadillo:/opt/xml \
+         armadillo
 
 $ # now you can run Nmap and save the XML Report on /tmp/webmap
-$ nmap -sT -A -T4 -oX /tmp/webmap/myscan.xml 192.168.1.0/24
+$ nmap -sT -A -T4 -oX /tmp/armadillo/myscan.xml 192.168.1.0/24
 ```
 Now point your browser to http://localhost:8000
 
 ### Generate new token
 In order to access to the WebMap dashboard, you need a token. You can create a new token with:
 ```bash
-$ docker exec -ti webmap /root/token
-```
-
-### Quick and Dirty
-```bash
-$ curl -sL http://bit.ly/webmapsetup | bash
+$ docker exec -ti armadillo /root/token
 ```
 
 ### Upgrade from previous release
 ```bash
 $ # stop running webmap container
-$ docker stop webmap
+$ docker stop aramdillo
 
 $ # remove webmap container
-$ docker rm webmap
+$ docker rm armadillo
 
-$ # pull new image from dockerhub
-$ docker pull rev3rse/webmap
+$ # build new image
+$ cd Project-Armadillo/docker
+$ docker build -t armadillo .
 
-$ # run WebMap
-$ curl -sL http://bit.ly/webmapsetup | bash
+$ # run Armadillo
+$  docker run -d \
+         --name armadillo \
+         -h armadillo \
+         -p 8000:8000 \
+         -v /tmp/armadillo:/opt/xml \
+         armadillo
 ```
 
 ### Run without Docker
 This project is designed to run on a Docker container. IMHO it isn't a good idea to run this on a custom Django installation, 
-but if you need it you can find all building steps inside the [Dockerfile](https://github.com/Rev3rseSecurity/WebMap/blob/v2.1/master/docker/Dockerfile).
+but if you need it you can find all building steps inside the [Dockerfile]
 
 ## Video
 The HTML template changes often. This video could not be up to date with the latest version.
@@ -96,7 +97,7 @@ Official Video of v2.1:<br>
 - RESTful API
 
 ## Roadmap for v2.3x
-You love WebMap and you know python? We need your help! This is what we want deploy for the v2.3:
+You love Armadillo and you know python? We need your help! This is what we want deploy for the v2.3:
 - [todo] Improve template: try to define better the html template and charts
 - [todo] Improve API: create a documentation/wiki about it
 - [todo] Wiki: create WebMap User Guide on GitHub
@@ -106,7 +107,7 @@ You love WebMap and you know python? We need your help! This is what we want dep
 
 ## Changes on v2.2
 - fixed bug on missing services
-- Run nmap from WebMap
+- Run nmap from Armadillo
 - Schedule nmap run
 - Add custom NSE scripts section
 
@@ -118,11 +119,11 @@ You love WebMap and you know python? We need your help! This is what we want dep
 - Add RESTful API
 
 ## PDF Report
-![WebMap](https://i.imgur.com/alWZix9.png)
+![WebMap]()
 
 ## XML Filenames
 When creating the PDF version of the Nmap XML Report, the XML filename is used as document title on the first page. 
-WebMap will replace some parts of the filename as following:
+Aramadillo will replace some parts of the filename as following:
 
 - `_` will replaced by a space (` `)
 - `.xml` will be removed
@@ -139,7 +140,7 @@ Not all CPE are checked over the circl.lu API, but only when a specific version 
 ![WebMap](https://i.imgur.com/j77jQz9.png)
 
 ## RESTful API
-From `v2.1` WebMap has a RESTful API frontend that makes users able to query their scan files with something like:
+From `v2.1` Armadillo has a RESTful API frontend that makes users able to query their scan files with something like:
 
 ```bash
 curl -s 'http://localhost:8000/api/v1/scan?token=<token>'
@@ -295,8 +296,3 @@ informations about your port scan. Please, be smart.
 ## Contributors
 This project is currently a beta, and I'm not super skilled on Django so, every type of contribution is appreciated. 
 I'll mention all contributors on the [CONTRIBUTORS](CONTRIBUTORS.md) file.
-
-## Contacts
-In order to receive updates about this project, please follow me on twitter:<br>
-Twitter: [@Menin_TheMiddle](https://twitter.com/Menin_TheMiddle)<br>
-YouTube: [Rev3rseSecurity](https://www.youtube.com/rev3rsesecurity)
