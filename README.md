@@ -121,7 +121,7 @@ You love Armadillo and you know python? We need your help! This is what we want 
 - Add RESTful API
 
 ## PDF Report
-![WebMap]()
+
 
 ## XML Filenames
 When creating the PDF version of the Nmap XML Report, the XML filename is used as document title on the first page. 
@@ -134,12 +134,12 @@ Example: `ACME_Ltd..xml`<br>
 PDF title: `ACME Ltd.`
 
 ## CVE and Exploits
-thanks to the amazing API services by circl.lu, WebMap is able to looking for CVE and Exploits for each CPE collected by Nmap. 
+thanks to the amazing API services by circl.lu, Armadillo is able to looking for CVE and Exploits for each CPE collected by Nmap. 
 Not all CPE are checked over the circl.lu API, but only when a specific version is specified 
 (for example: `cpe:/a:microsoft:iis:7.5` and not `cpe:/o:microsoft:windows`).
 
 ## Network View
-![WebMap]()
+
 
 ## RESTful API
 From `v2.1` Armadillo has a RESTful API frontend that makes users able to query their scan files with something like:
@@ -289,11 +289,16 @@ curl -v 'http://localhost:8000/api/v1/scan/hackthebox.xml/10.10.10.87?token=<tok
 - [API cve.circl.lu](https://cve.circl.lu)
 - [vis.js](http://visjs.org/)
 
-## Security Issues
-This app is not intended to be exposed to the internet, but to be used as localhost web application. Please, **DO NOT expose** this app to the internet, use your localhost or, 
-in case you can't do it, take care to filter who and what can access to WebMap with a firewall rule or something like that. 
-Exposing this app to the whole internet could lead not only to a stored XSS but also to a leakage of sensitive/critical/private 
-informations about your port scan. Please, be smart.
+## Security Warning
+This application needs to be properly deployed and secured, I advise using TINC or GVPE to create a secure Management LAN , so you can securely access this application over the wire. Please use a firewall and block direct access from the internet to this application for now as a precaution.
+
+Secure Usage Scenario 1: Deploy Application on a VPS, use a firewall to block all incoming ports, use TINC or GvPE to create a VPN Network to VPS. Brows to web page using secured VPN connection to the VPS. (Hint: you can also create a VPN into a network you want to scan and tear it down later)
+
+Secure Usage Scenario 2: Deploy application to a raspberry pi, connect pi to a network for scans, then browse to pi over your local lan to view resuts.
+
+This application has not been properly PEN tested for external use on the internet just yet. I will be doing this optimisation shortly, but for now use only on a private and secure managemnet network.
+
+I will include a script to help automate the creation of such a LAN in a future release.
 
 ## Contributors
 This project is currently a beta, and I'm not super skilled on Django so, every type of contribution is appreciated. 
