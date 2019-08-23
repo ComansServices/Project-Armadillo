@@ -19,9 +19,9 @@ A Web Dashbord Project-Armadillo - based on WebMap
 
 
 ## Screenshot
-<img src="https://i.imgur.com/ELZfqd0.png" /><br>
-<img src="https://i.imgur.com/KsBv1S0.png" /><br>
-<img src="https://i.imgur.com/g27mcc3.png" /><br>
+<img src="https://" /><br>
+<img src="https://" /><br>
+<img src="https://" /><br>
 <br>
 
 ## Usage
@@ -71,19 +71,6 @@ $  docker run -d \
 This project is designed to run on a Docker container. IMHO it isn't a good idea to run this on a custom Django installation, 
 but if you need it you can find all building steps inside the [Dockerfile]
 
-## Video
-The HTML template changes often. This video could not be up to date with the latest version.
-
-Version v2.3:<br>
-coming soon...<br>
-<br>
-HackerSploit Video about WebMap v2.2:<br>
-[![HackerSploit](https://img.youtube.com/vi/SoEIDNnOCGY/0.jpg)](https://www.youtube.com/watch?v=SoEIDNnOCGY)
-<br>
-Official Video of v2.1:<br>
-[![WebMap v2.1](https://img.youtube.com/vi/TujtG1Ki0TQ/0.jpg)](https://www.youtube.com/watch?v=TujtG1Ki0TQ)
-
-
 ## Features
 - Import and parse Nmap XML files
 - Run and Schedule Nmap Scan from dashboard
@@ -95,6 +82,21 @@ Official Video of v2.1:<br>
 - Copy to clipboard as Nikto, Curl or Telnet commands
 - Search for CVE and Exploits based on CPE collected by Nmap
 - RESTful API
+
+## Roadmap for v3.0
+
+Many thanks to the original developer who created this code, I think it is a good framework, and I will be forking and taking over development of this software, and I will start to investigate and introduce the following for version 3.0 release.
+
+I will re-name it project armadillo for now until I can think of a better name....
+
+- [todo] Improve the login authentication process, include support for SSO/SAML and 2FA
+- [todo] Re-write web code in Go Lang, make more robust and secure, get ready for cloudifaction
+- [todo] Optimise python code for security and speed
+- [todo] Create editable logo and identification options, develop a setup screen to change these items
+- [todo] Write automation script for automated docker container creation
+- [todo] create automated bash script for end to end isntallation with test data (docker, container, build , deploy
+- [todo] create a new docker container for docker hub for easy download
+- [working] Standardise look and feel, include more data feeds form other tools, improve exploit detection
 
 ## Roadmap for v2.3x
 You love Armadillo and you know python? We need your help! This is what we want deploy for the v2.3:
@@ -137,7 +139,7 @@ Not all CPE are checked over the circl.lu API, but only when a specific version 
 (for example: `cpe:/a:microsoft:iis:7.5` and not `cpe:/o:microsoft:windows`).
 
 ## Network View
-![WebMap](https://i.imgur.com/j77jQz9.png)
+![WebMap]()
 
 ## RESTful API
 From `v2.1` Armadillo has a RESTful API frontend that makes users able to query their scan files with something like:
