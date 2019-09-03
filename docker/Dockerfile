@@ -2,7 +2,8 @@
 # -
 # https://github.com/ComansServices/Project-Armadillo
 # Comans Services: http://www.comansservices.com.au
-# Author: theMiddle
+# Orignal Author: theMiddle
+# Current Author: Exhoplex
 # -
 # Usage:
 #   $ cd /opt
