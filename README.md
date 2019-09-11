@@ -25,33 +25,36 @@ A Web Dashbord Project-Armadillo - based on WebMap
 <br>
 
 ## Usage
-You should use this with docker, just by sending this command:
+You should build then use this with docker, just by sending this command:
 ```bash
-$ mkdir /tmp/armadillo
+$ git clone https://github.com/ComansServices/Project-armadillo
+$ cd Project-Armadillo/docker
+$ docker build -t armadillo .
+$ mkdir /armadillo
 $ docker run -d \
          --name armadillo \
          -h armadillo \
          -p 8000:8000 \
-         -v /tmp/armadillo:/opt/xml \
+         -v /armadillo:/opt/xml \
          armadillo
 
-$ # now you can run Nmap and save the XML Report on /tmp/webmap
+$ # now you can run Nmap and save the XML Report on /armadillo
 $ nmap -sT -A -T4 -oX /tmp/armadillo/myscan.xml 192.168.1.0/24
 ```
 Now point your browser to http://localhost:8000
 
 ### Generate new token
-In order to access to the WebMap dashboard, you need a token. You can create a new token with:
+In order to access to the dashboard, you need a token. You can create a new token with:
 ```bash
 $ docker exec -ti armadillo /root/token
 ```
 
 ### Upgrade from previous release
 ```bash
-$ # stop running webmap container
+$ # stop running container
 $ docker stop aramdillo
 
-$ # remove webmap container
+$ # remove container
 $ docker rm armadillo
 
 $ # build new image
@@ -68,7 +71,7 @@ $  docker run -d \
 ```
 
 ### Run without Docker
-This project is designed to run on a Docker container. IMHO it isn't a good idea to run this on a custom Django installation, 
+This project is designed to run on a Docker container. IMHO it isn't a good idea to run this on a custom Django installation,
 but if you need it you can find all building steps inside the [Dockerfile]
 
 ## Features
@@ -124,7 +127,7 @@ You love Armadillo and you know python? We need your help! This is what we want 
 
 
 ## XML Filenames
-When creating the PDF version of the Nmap XML Report, the XML filename is used as document title on the first page. 
+When creating the PDF version of the Nmap XML Report, the XML filename is used as document title on the first page.
 Aramadillo will replace some parts of the filename as following:
 
 - `_` will replaced by a space (` `)
@@ -134,8 +137,8 @@ Example: `ACME_Ltd..xml`<br>
 PDF title: `ACME Ltd.`
 
 ## CVE and Exploits
-thanks to the amazing API services by circl.lu, Armadillo is able to looking for CVE and Exploits for each CPE collected by Nmap. 
-Not all CPE are checked over the circl.lu API, but only when a specific version is specified 
+thanks to the amazing API services by circl.lu, Armadillo is able to looking for CVE and Exploits for each CPE collected by Nmap.
+Not all CPE are checked over the circl.lu API, but only when a specific version is specified
 (for example: `cpe:/a:microsoft:iis:7.5` and not `cpe:/o:microsoft:windows`).
 
 ## Network View
@@ -147,7 +150,7 @@ From `v2.1` Armadillo has a RESTful API frontend that makes users able to query 
 ```bash
 curl -s 'http://localhost:8000/api/v1/scan?token=<token>'
 
-    "webmap_version": "v2.1/master",
+    "armadillo_version": "v2.4/master",
     "scans": {
         "scanme.nmap.org.xml": {
             "filename": "scanme.nmap.org.xml",
@@ -301,5 +304,5 @@ This application has not been properly PEN tested for external use on the intern
 I will include a script to help automate the creation of such a LAN in a future release.
 
 ## Contributors
-This project is currently a beta, and I'm not super skilled on Django so, every type of contribution is appreciated. 
+This project is currently a beta, and I'm not super skilled on Django so, every type of contribution is appreciated.
 I'll mention all contributors on the [CONTRIBUTORS](CONTRIBUTORS.md) file.

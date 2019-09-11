@@ -1,29 +1,26 @@
 echo ""
-echo " __          __  _     __  __             "
-echo " \ \        / / | |   |  \/  |            "
-echo "  \ \  /\  / /__| |__ | \  / | __ _ _ __  "
-echo "   \ \/  \/ / _ \ '_ \| |\/| |/ _\` | '_ \ "
-echo "    \  /\  /  __/ |_) | |  | | (_| | |_) |"
-echo "     \/  \/ \___|_.__/|_|  |_|\__,_| .__/ "
-echo "                                   | |    "
-echo "                                   |_|    "
+echo "                                    _ _ _ _           "
+echo "      /\                            | (_) | |         "
+echo "     /  \   _ __ _ __ ___   __ _  __| |_| | | ___     "
+echo "    / /\ \ | '__| '_ ` _ \ / _` |/ _` | | | |/ _ \    "
+echo "   / ____ \| |  | | | | | | (_| | (_| | | | | (_) |   "
+echo "  /_/    \_\_|  |_| |_| |_|\__,_|\__,_|_|_|_|\___/    "
 echo ""
-echo -e "\n[+] Starting WebMap docker setup"
+echo -e "\n[+] Starting Armadillo docker setup"
 echo "[+] Creating required dirs"
-mkdir /tmp/webmap 2> /dev/null
-echo "[+] Pull WebMap from docker hub"
-docker pull rev3rse/webmap
-echo "[+] Remove old WebMap container"
-docker stop webmap 2> /dev/null
-docker rm webmap 2> /dev/null
-echo "[+] Run WebMap container"
-docker run -d --name webmap -h webmap -p 8000:8000 -v /tmp/webmap:/opt/xml rev3rse/webmap
+mkdir /armadillo 2> /dev/null
+echo "[+] Pull armadillo from docker hub"
+docker pull ComansServices/aramdillo
+echo "[+] Remove old armadillo container"
+docker stop armadillo 2> /dev/null
+docker rm armadillo 2> /dev/null
+echo "[+] Run New Armadillo container"
+docker run -d --name armadillo -h armadillo -p 8000:8000 -v /armadillo:/opt/xml ComansServices/armadillo
 echo "[+] Configure TimeZone for container"
-docker exec -ti webmap bash /root/tzdata.sh
+docker exec -ti armadillo bash /root/tzdata.sh
 echo "[+] Restart container"
-docker restart webmap
+docker restart armadillo
 echo "[+] Done"
 echo -e "\nNow you can point your browser to http://localhost:8000"
-echo "!! DO NOT EXPOSE WebMap TO THE INTERNET, BE SMART !!"
 echo "Please, take few seconds to support this project on GitHub"
-echo -e "https://github.com/Rev3rseSecurity/WebMap\n"
+echo -e "https://github.com/ComansServices/Project-Armadillo\n"

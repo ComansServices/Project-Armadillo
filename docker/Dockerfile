@@ -2,14 +2,15 @@
 # -
 # https://github.com/ComansServices/Project-Armadillo
 # Comans Services: http://www.comansservices.com.au
-# Author: theMiddle
+# Orignal Author: theMiddle
+# Current Author: Exhoplex
 # -
 # Usage:
 #   $ cd /opt
 #   $ git clone https://github.com/ComansServices/Project-Armadillo.git
 #   $ cd Project-Armadillo/docker
 #   $ docker build -t armadillo:latest .
-#   $ docker run -d -v /tmp/armadillo:/opt/xml -p 8000:8000 webmap:latest
+#   $ docker run -d -v /tmp/armadillo:/opt/xml -p 8000:8000 aramdillo:latest
 #
 # Nmap Example:
 #   $ nmap -sT -A -oX /tmp/myscan.xml 192.168.1.0/24
@@ -31,7 +32,7 @@ RUN mkdir /opt/xml && mkdir /opt/notes && \
 RUN pip3 install Django requests xmltodict && \
     cd /opt/ && django-admin startproject nmapdashboard && cd /opt/nmapdashboard && \
     git clone https://github.com/ComansServices/Project-Armadillo.git nmapreport && \
-    cd nmapreport && git checkout v2.3/master
+    cd nmapreport && git checkout v2.4/master
 
 COPY settings.py /opt/nmapdashboard/nmapdashboard/
 COPY urls.py /opt/nmapdashboard/nmapdashboard/
