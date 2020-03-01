@@ -12,14 +12,14 @@ import os
 import threading
 import time
 
-channel_list = [ "#cyberpunk.org.pl" ] # Put in a list of channels
+#channel_list = [ "#pandemic" ] # Put in a list of channels
 feed_list = [ "http://www.cyberpunk.org.pl/feeds/news.php", "http://pbfnode.pl/forum/index.php?PHPSESSID=a5b67416eb5fff2a4dff0f9ec8f7140d&action;=.xml;type=rss"]
-old_entries_file = os.environ.get("HOME") + "/.b0t/old-feed-entries"
+old_entries_file = os.environ.get("HOME")
+irc = irclib.irc("pandemic.sats.ninja", "6667", "#pandemic", debug=False)
+#irc = irclib.IRC()
+#server = irc.server()
 
-irc = irclib.IRC()
-server = irc.server()
-
-server.connect( "pandemic.sats.ninja", 6667, "j0seph_" ) # TODO: Make this general
+#server.connect( "pandemic.sats.ninja", 6667, "j0seph_" ) # TODO: Make this general
 # server.privmsg( "NickServ", "identify " )
 
 msgqueue = []
