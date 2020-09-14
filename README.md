@@ -25,7 +25,7 @@ A Web Dashbord Project-Armadillo - based on WebMap
 <br>
 
 ## Usage
-You should build then use this with docker, just by sending this command:
+To build from source do the following:
 ```bash
 $ git clone https://github.com/ComansServices/Project-armadillo
 $ cd Project-Armadillo/docker
@@ -37,7 +37,21 @@ $ docker run -d \
          -p 8000:8000 \
          -v /armadillo:/opt/xml \
          armadillo
+         
+$ # now you can run Nmap and save the XML Report on /armadillo
+$ nmap -sT -A -T4 -oX /armadillo/myscan.xml 192.168.1.0/24
 
+You can also pull a pre built image from dockerhub with:
+
+$ docker pull exhoplex/armadillo
+$ mkdir /armadillo
+$ docker run -d \
+         --name armadillo \
+         -h armadillo \
+         -p 8000:8000 \
+         -v /armadillo:/opt/xml \
+         armadillo
+         
 $ # now you can run Nmap and save the XML Report on /armadillo
 $ nmap -sT -A -T4 -oX /armadillo/myscan.xml 192.168.1.0/24
 ```
