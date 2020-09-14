@@ -39,7 +39,7 @@ $ docker run -d \
          armadillo
 
 $ # now you can run Nmap and save the XML Report on /armadillo
-$ nmap -sT -A -T4 -oX /tmp/armadillo/myscan.xml 192.168.1.0/24
+$ nmap -sT -A -T4 -oX /armadillo/myscan.xml 192.168.1.0/24
 ```
 Now point your browser to http://localhost:8000
 
