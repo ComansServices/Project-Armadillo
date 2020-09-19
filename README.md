@@ -50,7 +50,7 @@ $ docker run -d \
          -h armadillo \
          -p 8000:8000 \
          -v /armadillo:/opt/xml \
-         armadillo
+         exhoplex/armadillo
          
 $ # now you can run Nmap and save the XML Report on /armadillo
 $ nmap -sT -A -T4 -oX /armadillo/myscan.xml 192.168.1.0/24
