@@ -3,6 +3,16 @@
 A Web Dashbord Project-Armadillo - based on WebMap
 </p>
 
+> ## ⚠️ Project status (moved)
+> Active development has moved to **Project-Armadillo-v3** (modern TypeScript stack).
+> 
+> This repository is now treated as **legacy/archive**.
+> 
+> New stack docs currently live at:
+> - `armadillo-v3/`
+> - `docs/armadillo-v3-architecture.md`
+> - `docs/armadillo-v3-roadmap-90d.md`
+
 ## Table Of Contents
 - [Usage](#usage)
 - [Video](#video)
