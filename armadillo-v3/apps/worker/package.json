@@ -1,0 +1,17 @@
+{
+  "name": "@armadillo/worker",
+  "private": true,
+  "scripts": {
+    "dev": "tsx src/worker.ts",
+    "build": "echo worker build pending",
+    "lint": "echo worker lint pending",
+    "test": "echo worker test pending"
+  },
+  "dependencies": {
+    "bullmq": "^5.17.0",
+    "ioredis": "^5.4.1"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.1"
+  }
+}
